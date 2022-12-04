@@ -1,0 +1,25 @@
+---
+- hosts: "{{ group | default('ucs') }}"
+  connection: local
+  gather_facts: false
+  vars:
+    hostname: "{{ inventory_hostname }}"
+    template_name: auto-template
+    template_type: updating-template
+    host_firmware_package: ansible-latest
+    maintenance_policy: user-ack
+    vmedia_policy: cdd-nfs
+    profile_name: auto-profile
+    num_profiles: 2
+  tasks:
+    - block:
+        - import_role:
+            name: servers/defaults
+          tags: defaults
+        - import_role:
+            name: servers/service_profile_templates
+          tags: templates
+        - import_role:
+            name: servers/service_profiles
+          tags: profiles
+      delegate_to: localhost
