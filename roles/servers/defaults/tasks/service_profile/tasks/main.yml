@@ -1,7 +1,6 @@
 ---
 - name: "Configure {{ profile_name }} Service Profiles from template {{ template_name }}"
   vars:
-    # Create an anchor for login_info that can be used throughout the file
     login_info: &login_info
       hostname: "{{ hostname }}"
       username: "{{ username | default(omit) }}"
