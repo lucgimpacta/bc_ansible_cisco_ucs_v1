@@ -38,4 +38,4 @@ TASK [servers/defaults : Configure default IP Pool] ****************************
 
 ....
 
-### Após as configuração estarão disponíveis no UCSM!
+### Após isso, as configuração estarão disponíveis no UCSM!
